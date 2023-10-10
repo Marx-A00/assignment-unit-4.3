@@ -2,17 +2,17 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 let basket = [];
+let maxItems = 5;
 
 function addItem(item){
-    basket.push(item);
-
-    for(let i of basket){
-        if(i == item){
-            return true;
-        }
+    if (isFull() == true){
+        return false;
     }
-    return false;
+
+    basket.push(item);
+    return true;
 }
+
 console.log("Should return true: ", addItem("fedora"));
 
 function listItems(){
@@ -23,17 +23,23 @@ function listItems(){
         console.log(i+"\n");
     }
 }
-addItem("gold chain");
-addItem("Master Chief helmet");
-addItem("1 Vans skate shoe");
-listItems();
 
 function empty(){
     basket.length = 0;
-    return ("Basket has been emptied");
+    return ("Basket has been emptied"); // return versus console.log?
 }
-empty();
-console.log(listItems());
+
+function isFull(){
+    if(basket.length < maxItems){
+        return false;
+    }
+    return true;
+}
+
+addItem("gold chain");
+addItem("rocket ship");
+
+listItems();
 
 
 
