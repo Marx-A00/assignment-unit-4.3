@@ -5,15 +5,15 @@ let basket = [];
 let maxItems = 5;
 
 function addItem(item){
-    if (isFull() == true){
+    if (isFull()){
         return false;
-    }
 
+    }
+    
     basket.push(item);
+    console.log(listItems());
     return true;
 }
-
-console.log("Should return true: ", addItem("fedora"));
 
 function listItems(){
     if(basket.length == 0){
@@ -33,22 +33,22 @@ function isFull(){
     if(basket.length < maxItems){
         return false;
     }
-    return true;
+    else{
+        return true;
+    }
 }
+function removeItem(item){      // function to remove item from basket array.
+    let specialItem = basket.indexOf(item);
+    console.log ("special item", specialItem);
+    if(specialItem != -1){
 
-addItem("gold chain");
-addItem("rocket ship");
-
-listItems();
-
-
-
-
-
-
-
-
-
+        let removedItem = basket.splice(specialItem, 1);
+        
+        return removedItem[0];
+        //do whatever
+    }
+    return null;
+}
 
 
 
