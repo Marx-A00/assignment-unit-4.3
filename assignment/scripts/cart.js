@@ -7,7 +7,6 @@ let maxItems = 5;
 function addItem(item){
     if (isFull()){
         return false;
-
     }
     
     basket.push(item);
@@ -20,13 +19,18 @@ function listItems(){
         return ("Basket is empty");
     }
     for(let i of basket){
-        console.log(i+"\n");
+        console.log(i +"\n");
     }
 }
 
+console.log("test to add item to basket: ",addItem("Air Force 1s"));
+console.log("test to add item to basket: ",addItem("True Blue air jordan 3s"));
+console.log("Test to see list: ",listItems());
+console.log("manual Array print: ",basket);
+
 function empty(){
     basket.length = 0;
-    return ("Basket has been emptied"); // return versus console.log?
+    return ("Basket has been emptied");
 }
 
 function isFull(){
@@ -45,7 +49,7 @@ function removeItem(item){      // function to remove item from basket array.
         let removedItem = basket.splice(specialItem, 1);
         
         return removedItem[0];
-        //do whatever
+
     }
     return null;
 }
